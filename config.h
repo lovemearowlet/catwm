@@ -33,19 +33,19 @@
 #define CONFIG_H
 
 // Mod (Mod1 == alt) and master size
-#define MOD             Mod1Mask
-#define MASTER_SIZE     0.6
+#define MOD             Mod4Mask
+#define MASTER_SIZE     0.5
 
 // Colors
-#define FOCUS           "rgb:bc/57/66"
-#define UNFOCUS         "rgb:88/88/88"
+#define FOCUS           "rgb:33/56/de"
+#define UNFOCUS         "rgb:2b/35/44"
 
 // Borders and gap
 #define BORDER_SIZE     5
 #define GAP_SIZE        5
 
 const char* dmenucmd[] = {"dmenu_run",NULL};
-const char* urxvtcmd[] = {"urxvt",NULL};
+const char* urxvtcmd[] = {"xfce4-terminal",NULL};
 const char* lockcmd[]  = {"slock",NULL};
 const char* next[]     = {"ncmpcpp","next",NULL};
 const char* prev[]     = {"ncmpcpp","prev",NULL};
@@ -63,13 +63,13 @@ static struct key keys[] = {
     // MOD              KEY                         FUNCTION        ARGS
     {  MOD,             XK_h,                       decrease,       {NULL}},
     {  MOD,             XK_l,                       increase,       {NULL}},
-    {  MOD,             XK_x,                       kill_client,    {NULL}},
+    {  MOD,             XK_q,                       kill_client,    {NULL}},
     {  MOD,             XK_j,                       next_win,       {NULL}},
     {  MOD,             XK_Tab,                     next_win,       {NULL}},
-    {  MOD,             XK_k,                       prev_win,       {NULL}},
-    {  MOD|ShiftMask,   XK_j,                       move_up,        {NULL}},
-    {  MOD|ShiftMask,   XK_k,                       move_down,      {NULL}},
-    {  MOD,             XK_Return,                  swap_master,    {NULL}},
+    {  MOD|ShiftMask,   XK_Tab,                     prev_win,       {NULL}},
+    {  MOD,             XK_j,                       move_up,        {NULL}},
+    {  MOD,             XK_k,                       move_down,      {NULL}},
+    {  MOD|ShiftMask,   XK_Return,                  swap_master,    {NULL}},
     {  MOD,             XK_space,                   switch_mode,    {NULL}},
     {  MOD,             XK_c,                       spawn,          {.com = lockcmd}},
     {  0,               XF86XK_AudioNext,           spawn,          {.com = next}},
@@ -78,7 +78,7 @@ static struct key keys[] = {
     {  0,               XF86XK_AudioLowerVolume,    spawn,          {.com = voldown}},
     {  0,               XF86XK_AudioRaiseVolume,    spawn,          {.com = volup}},
     {  MOD,             XK_p,                       spawn,          {.com = dmenucmd}},
-    {  MOD|ShiftMask,   XK_Return,                  spawn,          {.com = urxvtcmd}},
+    {  MOD,             XK_Return,                  spawn,          {.com = urxvtcmd}},
     {  MOD,             XK_Right,                   next_desktop,   {NULL}},
     {  MOD,             XK_Left,                    prev_desktop,   {NULL}},
        DESKTOPCHANGE(   XK_0,                                       0)
@@ -91,7 +91,7 @@ static struct key keys[] = {
        DESKTOPCHANGE(   XK_7,                                       7)
        DESKTOPCHANGE(   XK_8,                                       8)
        DESKTOPCHANGE(   XK_9,                                       9)
-    {  MOD,             XK_q,                       quit,           {NULL}}
+    {  MOD|ShiftMask,             XK_e,                       quit,           {NULL}}
 };
 
 #endif
